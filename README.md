@@ -4,7 +4,9 @@
 ## Skills used for this project
 * HTML
 * CSS
+* JavaScript
 * React
+* Bootstrap
 * Vite
 * WORK IN PROGRESS
 
