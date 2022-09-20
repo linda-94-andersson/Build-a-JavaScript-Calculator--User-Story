@@ -120,7 +120,7 @@ function App() {
         </Row>
 
         <Row>
-          <Col style={{ paddingRight: 0 }}>
+          <Col>
             <Row>
               <Col style={{ paddingRight: 0 }}>
                 <Button
@@ -149,7 +149,8 @@ function App() {
                   3
                 </Button>
               </Col>
-
+            </Row>
+            <Row>
               <Col style={{ paddingRight: 0 }}>
                 <Button
                   id="zero"
@@ -159,7 +160,7 @@ function App() {
                   0
                 </Button>
               </Col>
-              <Col style={{ paddingLeft: 0 }}>
+              <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
                 <Button
                   id="decimal"
                   style={{ borderRadius: 0, width: "100%" }}
@@ -170,8 +171,7 @@ function App() {
               </Col>
             </Row>
           </Col>
-
-          <Col style={{ paddingLeft: 0 }}>
+          <Col xs={3} style={{ paddingLeft: 0, width: "26.1%" }}>
             <Button
               id="equals"
               style={{ borderRadius: 0, width: "100%", height: "100%" }}
