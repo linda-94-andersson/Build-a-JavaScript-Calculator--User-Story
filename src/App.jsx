@@ -1,184 +1,62 @@
 import react from "react";
 import { Container, Button, Col, Row } from "react-bootstrap";
+import Display from "./components/Display";
+import Eight from "./components/numbers/Eight";
+import Five from "./components/numbers/Five";
+import Four from "./components/numbers/Four";
+import Nine from "./components/numbers/Nine";
+import One from "./components/numbers/One";
+import Seven from "./components/numbers/Seven";
+import Six from "./components/numbers/Six";
+import Three from "./components/numbers/Three";
+import Two from "./components/numbers/Two";
+import Zero from "./components/numbers/Zero";
+import Add from "./components/operatiors/Add";
+import Decimal from "./components/operatiors/Decimal";
+import Divide from "./components/operatiors/Divide";
+import Equals from "./components/operatiors/Equals";
+import Multiply from "./components/operatiors/Multiply";
+import Subtrack from "./components/operatiors/Subtrack";
+import Reset from "./components/Reset";
 
 function App() {
   return (
     <Container>
-      <Container
-        id="display"
-        style={{ backgroundColor: "black", color: "white" }}
-      >
-        Display calc here 0
-      </Container>
+      <Display />
       <Container style={{ backgroundColor: "grey", padding: 0 }}>
         <Row>
-          <Col xs={6} style={{ paddingRight: 0 }}>
-            <Button
-              id="clear"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="danger"
-            >
-              AC
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Button
-              id="divide"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="secondary"
-            >
-              /
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0 }}>
-            <Button
-              id="multiply"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="secondary"
-            >
-              x
-            </Button>
-          </Col>
+          <Reset />
+          <Divide />
+          <Multiply />
         </Row>
 
         <Row>
-          <Col style={{ paddingRight: 0 }}>
-            <Button
-              id="seven"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              7
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Button
-              id="eight"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              8
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Button
-              id="nine"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              9
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0 }}>
-            <Button
-              id="subtract"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="secondary"
-            >
-              -
-            </Button>
-          </Col>
+          <Seven />
+          <Eight />
+          <Nine />
+          <Subtrack />
         </Row>
 
         <Row>
-          <Col style={{ paddingRight: 0 }}>
-            <Button
-              id="four"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              4
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Button
-              id="five"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              5
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <Button
-              id="six"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="dark"
-            >
-              6
-            </Button>
-          </Col>
-          <Col style={{ paddingLeft: 0 }}>
-            <Button
-              id="add"
-              style={{ borderRadius: 0, width: "100%" }}
-              variant="secondary"
-            >
-              +
-            </Button>
-          </Col>
+          <Four />
+          <Five />
+          <Six />
+          <Add />
         </Row>
 
         <Row>
           <Col>
             <Row>
-              <Col style={{ paddingRight: 0 }}>
-                <Button
-                  id="one"
-                  style={{ borderRadius: 0, width: "100%" }}
-                  variant="dark"
-                >
-                  1
-                </Button>
-              </Col>
-              <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <Button
-                  id="two"
-                  style={{ borderRadius: 0, width: "100%" }}
-                  variant="dark"
-                >
-                  2
-                </Button>
-              </Col>
-              <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <Button
-                  id="three"
-                  style={{ borderRadius: 0, width: "100%" }}
-                  variant="dark"
-                >
-                  3
-                </Button>
-              </Col>
+              <One />
+              <Two />
+              <Three />
             </Row>
             <Row>
-              <Col style={{ paddingRight: 0 }}>
-                <Button
-                  id="zero"
-                  style={{ borderRadius: 0, width: "100%" }}
-                  variant="dark"
-                >
-                  0
-                </Button>
-              </Col>
-              <Col style={{ paddingLeft: 0, paddingRight: 0 }}>
-                <Button
-                  id="decimal"
-                  style={{ borderRadius: 0, width: "100%" }}
-                  variant="dark"
-                >
-                  .
-                </Button>
-              </Col>
+              <Zero />
+              <Decimal />
             </Row>
           </Col>
-          <Col xs={3} className="b-bottom-row">
-            <Button
-              id="equals"
-              style={{ borderRadius: 0, width: "100%", height: "100%" }}
-            >
-              =
-            </Button>
-          </Col>
+          <Equals />
         </Row>
       </Container>
     </Container>
