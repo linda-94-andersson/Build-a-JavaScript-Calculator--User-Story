@@ -171,7 +171,7 @@ function App() {
               </Col>
             </Row>
           </Col>
-          <Col xs={3} style={{ paddingLeft: 0, width: "26.1%" }}>
+          <Col xs={3} className="b-bottom-row">
             <Button
               id="equals"
               style={{ borderRadius: 0, width: "100%", height: "100%" }}

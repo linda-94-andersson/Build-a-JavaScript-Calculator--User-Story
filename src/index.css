@@ -14,3 +14,62 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.b-bottom-row {
+  padding-left: 0;
+  width: 26.1%;
+}
+
+@media (max-width: 1399px){
+  .b-bottom-row {
+    width: 26.3%;
+  }
+}
+
+@media (max-width: 1299px){
+  .b-bottom-row {
+    width: 26.5%;
+  }
+}
+
+@media (max-width: 1002px){
+  .b-bottom-row {
+    width: 26.6%;
+  }
+}
+
+@media (max-width: 991px){
+  .b-bottom-row {
+    width: 27%;
+  }
+}
+
+@media (max-width: 767px){
+  .b-bottom-row {
+    width: 27.6%;
+  }
+}
+
+@media (max-width: 545px){
+  .b-bottom-row {
+    width: 27.8%;
+  }
+}
+
+@media (max-width: 509px){
+  .b-bottom-row {
+    width: 27.9%;
+  }
+}
+
+@media (max-width: 485px){
+  .b-bottom-row {
+    width: 28%;
+  }
+}
+
+@media (max-width: 469px){
+  .b-bottom-row {
+    width: 28.1%;
+  }
+}
