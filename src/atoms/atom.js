@@ -9,3 +9,8 @@ export const operatorState = atom({
     key: "operatorState",
     default: null,
 });
+
+export const firstCountState = atom({
+    key: "firstCountState",
+    default: "",
+});
