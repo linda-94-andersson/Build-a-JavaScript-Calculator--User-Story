@@ -7,6 +7,7 @@
 * JavaScript
 * React
 * Bootstrap
+* Recoil
 * Vite
 * WORK IN PROGRESS
 
