@@ -1,13 +1,18 @@
 import react from "react";
 import { Button, Col } from "react-bootstrap";
 import { useRecoilState } from "recoil";
-import { operatorState } from "../../atoms/atom";
+import { operatorState, displayState, firstCountState } from "../../atoms/atom";
 
 const Divide = () => {
   const [operator, setOperator] = useRecoilState(operatorState);
+  const [display, setDisplay] = useRecoilState(displayState);
+  const [firstCount, setFirstCount] = useRecoilState(firstCountState);
 
   const handleClick = () => {
+    if (!display) return;
     setOperator("/");
+    setFirstCount(display);
+    setDisplay("");
   };
 
   return (

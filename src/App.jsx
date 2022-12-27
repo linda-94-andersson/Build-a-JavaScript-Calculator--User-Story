@@ -11,12 +11,12 @@ import Six from "./components/numbers/Six";
 import Three from "./components/numbers/Three";
 import Two from "./components/numbers/Two";
 import Zero from "./components/numbers/Zero";
-import Add from "./components/operatiors/Add";
-import Decimal from "./components/operatiors/Decimal";
-import Divide from "./components/operatiors/Divide";
-import Equals from "./components/operatiors/Equals";
-import Multiply from "./components/operatiors/Multiply";
-import Subtrack from "./components/operatiors/Subtrack";
+import Add from "./components/operators/Add";
+import Decimal from "./components/operators/Decimal";
+import Divide from "./components/operators/Divide";
+import Equals from "./components/Equals";
+import Multiply from "./components/operators/Multiply";
+import Subtrack from "./components/operators/Subtrack";
 import Reset from "./components/Reset";
 
 function App() {

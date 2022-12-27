@@ -1,15 +1,17 @@
 import react from "react";
 import { Button, Col } from "react-bootstrap";
 import { useRecoilState } from "recoil";
-import { displayState, operatorState } from "../atoms/atom";
+import { displayState, operatorState, firstCountState } from "../atoms/atom";
 
 const Reset = () => {
   const [display, setDisplay] = useRecoilState(displayState);
   const [operator, setOperator] = useRecoilState(operatorState);
+  const [firstCount, setFirstCount] = useRecoilState(firstCountState);
 
   const handleClick = () => {
     setDisplay("0");
     setOperator(null);
+    setFirstCount(null);
   };
 
   return (
