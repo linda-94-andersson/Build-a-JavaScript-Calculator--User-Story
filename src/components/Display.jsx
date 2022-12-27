@@ -1,13 +1,22 @@
 import react from "react";
 import { Container } from "react-bootstrap";
+import { useRecoilState } from "recoil";
+import { displayState } from "../atoms/atom";
 
 const Display = () => {
+  const [display, setDisplay] = useRecoilState(displayState);
+
   return (
     <Container
       id="display"
-      style={{ backgroundColor: "black", color: "white" }}
+      style={{
+        backgroundColor: "black",
+        color: "white",
+        display: "flex",
+        justifyContent: "flex-end",
+      }}
     >
-      Display calc here 0
+      {display}
     </Container>
   );
 };
