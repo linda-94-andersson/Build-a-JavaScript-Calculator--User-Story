@@ -1,5 +1,5 @@
 import react from "react";
-import { Container, Button, Col, Row } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import Display from "./components/Display";
 import Eight from "./components/numbers/Eight";
 import Five from "./components/numbers/Five";
@@ -21,43 +21,45 @@ import Reset from "./components/Reset";
 
 function App() {
   return (
-    <Container>
-      <Display />
-      <Container style={{ backgroundColor: "grey", padding: 0 }}>
-        <Row>
-          <Reset />
-          <Divide />
-          <Multiply />
-        </Row>
+    <Container style={{ height: "100vw", paddingTop: 50 }}>
+      <Container>
+        <Display />
+        <Container style={{ backgroundColor: "grey", padding: 0 }}>
+          <Row>
+            <Reset />
+            <Divide />
+            <Multiply />
+          </Row>
 
-        <Row>
-          <Seven />
-          <Eight />
-          <Nine />
-          <Subtrack />
-        </Row>
+          <Row>
+            <Seven />
+            <Eight />
+            <Nine />
+            <Subtrack />
+          </Row>
 
-        <Row>
-          <Four />
-          <Five />
-          <Six />
-          <Add />
-        </Row>
+          <Row>
+            <Four />
+            <Five />
+            <Six />
+            <Add />
+          </Row>
 
-        <Row>
-          <Col>
-            <Row>
-              <One />
-              <Two />
-              <Three />
-            </Row>
-            <Row>
-              <Zero />
-              <Decimal />
-            </Row>
-          </Col>
-          <Equals />
-        </Row>
+          <Row>
+            <Col>
+              <Row>
+                <One />
+                <Two />
+                <Three />
+              </Row>
+              <Row>
+                <Zero />
+                <Decimal />
+              </Row>
+            </Col>
+            <Equals />
+          </Row>
+        </Container>
       </Container>
     </Container>
   );
