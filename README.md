@@ -5,9 +5,9 @@
 The test result returns only 12/16 even tho it should be 15/16. I have manually tested everything and it works. 
 
 The only point not working according to me, is the:
-" 
+
 * User Story #13: If 2 or more operators are entered consecutively, the operation performed should be the last operator entered (excluding the negative (-) sign). For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); if 5 * - 5 = is entered, the result should be -25 (i.e. 5 * (-5)).
-"
+
 There is no solution for this as of now. I have chosen that you can't change operator after selecting one. And it doesn't seem fitting that 5 * - 5 = -25. Most calculators don't do that instead it changes it to 5 - 5. 
 
 
