@@ -13,6 +13,31 @@ const Multiply = () => {
     setOperator("*");
     setFirstCount(display);
     setDisplay("");
+    if (operator === "-") {
+      const sum = parseFloat(firstCount) - parseFloat(display);
+      setDisplay(sum.toString());
+      setOperator("*");
+      setFirstCount(sum.toString());
+      setDisplay("");
+    } else if (operator === "+") {
+      const sum = parseFloat(firstCount) + parseFloat(display);
+      setDisplay(sum.toString());
+      setOperator("*");
+      setFirstCount(sum.toString());
+      setDisplay("");
+    } else if (operator === "*") {
+      const sum = parseFloat(firstCount) * parseFloat(display);
+      setDisplay(sum.toString());
+      setOperator("*");
+      setFirstCount(sum.toString());
+      setDisplay("");
+    } else if (operator === "/") {
+      const sum = parseFloat(firstCount) / parseFloat(display);
+      setDisplay(sum.toString());
+      setOperator("*");
+      setFirstCount(sum.toString());
+      setDisplay("");
+    }
   };
 
   return (
