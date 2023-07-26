@@ -5,6 +5,8 @@ import Button from "./Button";
 
 const Calculator = () => {
   const [display, setDisplay] = useState("0");
+  const [operator, setOperator] = useState(null);
+  const [firstCount, setFirstCount] = useState(null);
 
   const handleNumberClick = (num) => {
     if (display === "0") {
