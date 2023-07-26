@@ -5,8 +5,6 @@ import Button from "./Button";
 
 const Calculator = () => {
   const [display, setDisplay] = useState("0");
-  const [operator, setOperator] = useState(null);
-  const [firstCount, setFirstCount] = useState(null);
 
   const handleNumberClick = (num) => {
     if (display === "0") {
@@ -17,44 +15,22 @@ const Calculator = () => {
   };
 
   const handleOperatorClick = (op) => {
-    if (!firstCount) {
-      setOperator(op);
-      setFirstCount(display);
-      setDisplay((prevDisplay) => prevDisplay + op); // Append the operator to the display
-    } else {
-      handleEquals();
-      setOperator(op);
-      setFirstCount(display);
-      setDisplay((prevDisplay) => prevDisplay + op); // Append the operator to the display
-    }
+    setDisplay((prevDisplay) => prevDisplay + op);
   };
 
   const handleEquals = () => {
-    if (!operator) return;
-
-    const firstNum = parseFloat(firstCount);
-    const secondNum = parseFloat(display);
-    let result;
-
-    if (operator === "-") {
-      result = firstNum - secondNum;
-    } else if (operator === "+") {
-      result = firstNum + secondNum;
-    } else if (operator === "*") {
-      result = firstNum * secondNum;
-    } else if (operator === "/") {
-      result = firstNum / secondNum;
+    try {
+      // Evaluate the expression using the "eval" function
+      const result = eval(display);
+      setDisplay(result.toString());
+    } catch (error) {
+      // Handle any errors that might occur during evaluation
+      setDisplay("Error");
     }
-
-    setDisplay(result.toString());
-    setFirstCount(null);
-    setOperator(null);
   };
 
   const handleClear = () => {
     setDisplay("0");
-    setOperator(null);
-    setFirstCount(null);
   };
 
   const handleDecimal = () => {
