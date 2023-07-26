@@ -20,12 +20,12 @@ const Calculator = () => {
     if (!firstCount) {
       setOperator(op);
       setFirstCount(display);
-      setDisplay(display + op); // Append the operator to the display
+      setDisplay((prevDisplay) => prevDisplay + op); // Append the operator to the display
     } else {
       handleEquals();
       setOperator(op);
       setFirstCount(display);
-      setDisplay(display + op); // Append the operator to the display
+      setDisplay((prevDisplay) => prevDisplay + op); // Append the operator to the display
     }
   };
 
