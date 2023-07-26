@@ -17,7 +17,17 @@ const Calculator = () => {
   };
 
   const handleOperatorClick = (op) => {
-    setDisplay((prevDisplay) => prevDisplay + op);
+    if (!operator) {
+      setOperator(op);
+      setFirstCount(display);
+      setDisplay((prevDisplay) => prevDisplay + op);
+    } else {
+      // If the operator is already set, calculate the result
+      handleEquals();
+      setOperator(op);
+      setFirstCount(display);
+      setDisplay((prevDisplay) => prevDisplay + op);
+    }
   };
 
   const handleEquals = () => {
