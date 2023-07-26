@@ -48,8 +48,8 @@ const Calculator = () => {
     }
 
     setDisplay(result.toFixed(1)); // Format the result with one decimal place
-    setFirstCount(null);
-    setOperator(null);
+    setFirstCount(result.toFixed(1)); // Update the firstCount with the result
+    setOperator(null); // Reset the operator to null
   };
 
   const handleClear = () => {
