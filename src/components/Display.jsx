@@ -1,12 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { useRecoilValue } from "recoil";
-import { displayState, operatorState } from "../atoms/atom";
 
-const Display = () => {
-  const display = useRecoilValue(displayState);
-  const operator = useRecoilValue(operatorState);
-
+const Display = ({ value }) => {
   return (
     <Container
       id="display"
@@ -17,7 +12,7 @@ const Display = () => {
         justifyContent: "flex-end",
       }}
     >
-      {operator === null ? `${display}` : `${operator} ${display}`}
+      {value}
     </Container>
   );
 };
