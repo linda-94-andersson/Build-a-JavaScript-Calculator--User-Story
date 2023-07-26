@@ -11,6 +11,8 @@ const Calculator = () => {
   const handleNumberClick = (num) => {
     if (display === "0") {
       setDisplay(num);
+    } else if (display === "-") {
+      setDisplay(`-${num}`);
     } else {
       setDisplay((prevDisplay) => prevDisplay + num);
     }
@@ -47,13 +49,15 @@ const Calculator = () => {
       result = firstNum / secondNum;
     }
 
-    setDisplay(result.toFixed(1)); // Format the result with one decimal place
-    setFirstCount(result.toFixed(1)); // Update the firstCount with the result
+    setDisplay(result.toString()); // Convert result to string to handle negative numbers
+    setFirstCount(result.toString()); // Update the firstCount with the result
     setOperator(null); // Reset the operator to null
   };
 
   const handleClear = () => {
     setDisplay("0");
+    setOperator(null);
+    setFirstCount(null);
   };
 
   const handleDecimal = () => {
