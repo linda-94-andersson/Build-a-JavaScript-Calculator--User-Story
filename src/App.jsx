@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import Display from "./components/Display";
 import Eight from "./components/numbers/Eight";

@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Button, Col } from "react-bootstrap";
 import { useRecoilState } from "recoil";
 import { displayState, operatorState, firstCountState } from "../atoms/atom";
