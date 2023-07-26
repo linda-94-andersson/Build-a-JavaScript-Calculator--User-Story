@@ -1,42 +1,38 @@
-import react from "react";
+import React from "react";
 import { Button, Col } from "react-bootstrap";
 import { useRecoilState } from "recoil";
 import { displayState, firstCountState, operatorState } from "../../atoms/atom";
 
-const Subtrack = () => {
+const Subtract = () => {
   const [operator, setOperator] = useRecoilState(operatorState);
   const [display, setDisplay] = useRecoilState(displayState);
   const [firstCount, setFirstCount] = useRecoilState(firstCountState);
 
   const handleClick = () => {
-    if (!display) return;
-    setOperator("-");
-    setFirstCount(display);
+    if (!firstCount) {
+      setOperator("-");
+      setFirstCount(display);
+    } else {
+      performCalculation();
+      setOperator("-");
+      setFirstCount(display);
+    }
     setDisplay("");
+  };
+
+  const performCalculation = () => {
     if (operator === "-") {
       const sum = parseFloat(firstCount) - parseFloat(display);
       setDisplay(sum.toString());
-      setOperator("-");
-      setFirstCount(sum.toString());
-      setDisplay("");
     } else if (operator === "+") {
       const sum = parseFloat(firstCount) + parseFloat(display);
       setDisplay(sum.toString());
-      setOperator("-");
-      setFirstCount(sum.toString());
-      setDisplay("");
     } else if (operator === "*") {
       const sum = parseFloat(firstCount) * parseFloat(display);
       setDisplay(sum.toString());
-      setOperator("-");
-      setFirstCount(sum.toString());
-      setDisplay("");
     } else if (operator === "/") {
       const sum = parseFloat(firstCount) / parseFloat(display);
       setDisplay(sum.toString());
-      setOperator("-");
-      setFirstCount(sum.toString());
-      setDisplay("");
     }
   };
 
@@ -54,4 +50,4 @@ const Subtrack = () => {
   );
 };
 
-export default Subtrack;
+export default Subtract;

@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Button, Col } from "react-bootstrap";
 import { useRecoilState } from "recoil";
 import { displayState, operatorState, firstCountState } from "../atoms/atom";
@@ -8,25 +8,44 @@ const Equals = () => {
   const [operator, setOperator] = useRecoilState(operatorState);
   const [firstCount, setFirstCount] = useRecoilState(firstCountState);
 
-  const handleClick = () => {
-    if (!display) return;
-    if (operator === "-") {
-      const sum = parseFloat(firstCount) - parseFloat(display);
-      setDisplay(sum.toString());
-      setOperator(null);
-    } else if (operator === "+") {
-      const sum = parseFloat(firstCount) + parseFloat(display);
-      setDisplay(sum.toString());
-      setOperator(null);
-    } else if (operator === "*") {
-      const sum = parseFloat(firstCount) * parseFloat(display);
-      setDisplay(sum.toString());
-      setOperator(null);
-    } else if (operator === "/") {
-      const sum = parseFloat(firstCount) / parseFloat(display);
-      setDisplay(sum.toString());
-      setOperator(null);
+  const removeTrailingZeros = (num) => {
+    if (Number.isInteger(num)) {
+      return num.toString();
+    } else {
+      return num.toFixed(4).replace(/\.?0*$/, "");
     }
+  };
+
+  const handleClick = () => {
+    if (!display || !firstCount) return;
+
+    // If no operator is selected, display the current number
+    if (!operator) {
+      setDisplay(removeTrailingZeros(parseFloat(display)));
+      return;
+    }
+
+    // Perform the previous calculation
+    performCalculation();
+    setOperator(null);
+  };
+
+  const performCalculation = () => {
+    const firstNum = parseFloat(firstCount);
+    const secondNum = parseFloat(display);
+    let result;
+
+    if (operator === "-") {
+      result = firstNum - secondNum;
+    } else if (operator === "+") {
+      result = firstNum + secondNum;
+    } else if (operator === "*") {
+      result = firstNum * secondNum;
+    } else if (operator === "/") {
+      result = firstNum / secondNum;
+    }
+
+    setDisplay(removeTrailingZeros(result));
   };
 
   return (
