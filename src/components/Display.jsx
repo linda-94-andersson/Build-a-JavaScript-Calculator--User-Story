@@ -1,11 +1,11 @@
-import react from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { displayState, operatorState } from "../atoms/atom";
 
 const Display = () => {
-  const [display, setDisplay] = useRecoilState(displayState);
-  const [operator, setOperator] = useRecoilState(operatorState);
+  const display = useRecoilValue(displayState);
+  const operator = useRecoilValue(operatorState);
 
   return (
     <Container
