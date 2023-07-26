@@ -19,14 +19,25 @@ const Calculator = () => {
   };
 
   const handleEquals = () => {
-    try {
-      // Evaluate the expression using the "eval" function
-      const result = eval(display);
-      setDisplay(result.toString());
-    } catch (error) {
-      // Handle any errors that might occur during evaluation
-      setDisplay("Error");
+    if (!operator) return;
+
+    const firstNum = parseFloat(firstCount);
+    const secondNum = parseFloat(display);
+    let result;
+
+    if (operator === "-") {
+      result = firstNum - secondNum;
+    } else if (operator === "+") {
+      result = firstNum + secondNum;
+    } else if (operator === "*") {
+      result = firstNum * secondNum;
+    } else if (operator === "/") {
+      result = firstNum / secondNum;
     }
+
+    setDisplay(result.toFixed(1)); // Format the result with one decimal place
+    setFirstCount(null);
+    setOperator(null);
   };
 
   const handleClear = () => {
@@ -34,7 +45,19 @@ const Calculator = () => {
   };
 
   const handleDecimal = () => {
-    if (!display.includes(".")) {
+    // Split the display into tokens based on operators
+    const tokens = display.split(/[+\-*/]/);
+    const lastToken = tokens[tokens.length - 1];
+
+    // If the last token already contains a decimal, do not add another one
+    if (lastToken.includes(".")) {
+      return;
+    }
+
+    // If there is no last token or it's an operator, add a leading zero before the decimal
+    if (!lastToken || /[+\-*/]/.test(lastToken)) {
+      setDisplay((prevDisplay) => prevDisplay + "0.");
+    } else {
       setDisplay((prevDisplay) => prevDisplay + ".");
     }
   };
