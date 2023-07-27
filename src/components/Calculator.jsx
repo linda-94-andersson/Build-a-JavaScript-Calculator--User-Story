@@ -52,30 +52,44 @@ const Calculator = () => {
       }
     }
   };
-  
-  
 
-  // const handleEquals = () => {
-  //   if (!operator) return;
+  const handleEquals = () => {
+    if (!operator) return;
 
-  //   const firstNum = parseFloat(firstCount);
-  //   const secondNum = parseFloat(display);
-  //   let result;
+    // Split the display into tokens based on operators
+    const tokens = display.split(/([+\-*/])/);
 
-  //   if (operator === "-") {
-  //     result = firstNum - secondNum;
-  //   } else if (operator === "+") {
-  //     result = firstNum + secondNum;
-  //   } else if (operator === "*") {
-  //     result = firstNum * secondNum;
-  //   } else if (operator === "/") {
-  //     result = firstNum / secondNum;
-  //   }
+    // Filter out empty tokens and operators
+    const filteredTokens = tokens.filter((token) => token.trim() !== "");
 
-  //   setDisplay(result.toString());
-  //   setFirstCount(result.toString());
-  //   setOperator(null);
-  // };
+    // Perform calculations while considering operator precedence
+    let result = parseFloat(filteredTokens[0]);
+
+    for (let i = 1; i < filteredTokens.length; i += 2) {
+      const operator = filteredTokens[i];
+      const nextOperand = parseFloat(filteredTokens[i + 1]);
+
+      if (operator === "*") {
+        // Handle multiplication
+        result *= nextOperand;
+      } else if (operator === "/") {
+        // Handle division
+        result /= nextOperand;
+      } else {
+        // Handle addition and subtraction
+        if (operator === "+") {
+          result += nextOperand;
+        } else if (operator === "-") {
+          result -= nextOperand;
+        }
+      }
+    }
+
+    // Update the display with the calculated result
+    setDisplay(result.toString());
+    setFirstCount(result.toString());
+    setOperator(null);
+  };
 
   const handleClear = () => {
     setDisplay("0");
