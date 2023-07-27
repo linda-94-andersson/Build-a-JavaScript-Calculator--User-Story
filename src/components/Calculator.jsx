@@ -20,39 +20,51 @@ const Calculator = () => {
 
   const handleOperatorClick = (op) => {
     if (!operator) {
-      setOperator(op);
-      setFirstCount(display);
-      setDisplay((prevDisplay) => prevDisplay + op);
+      if (op === "-") {
+        // Handle negative sign as a separate case
+        if (display === "0") {
+          setDisplay("-");
+        } else {
+          setOperator(op);
+          setFirstCount(display);
+          setDisplay((prevDisplay) => prevDisplay + op);
+        }
+      } else {
+        // Handle other operators
+        setOperator(op);
+        setFirstCount(display);
+        setDisplay((prevDisplay) => prevDisplay + op);
+      }
     } else {
-      // If the operator is already set, calculate the result
-      handleEquals();
-      setOperator(op);
-      setFirstCount(display);
-      setDisplay((prevDisplay) => prevDisplay + op);
+      // Allow chaining of "-" operator, ignore other operators if already set
+      if (op === "-") {
+        setOperator(op);
+        setDisplay((prevDisplay) => prevDisplay + op);
+      }
     }
   };
 
-  const handleEquals = () => {
-    if (!operator) return;
+  // const handleEquals = () => {
+  //   if (!operator) return;
 
-    const firstNum = parseFloat(firstCount);
-    const secondNum = parseFloat(display);
-    let result;
+  //   const firstNum = parseFloat(firstCount);
+  //   const secondNum = parseFloat(display);
+  //   let result;
 
-    if (operator === "-") {
-      result = firstNum - secondNum;
-    } else if (operator === "+") {
-      result = firstNum + secondNum;
-    } else if (operator === "*") {
-      result = firstNum * secondNum;
-    } else if (operator === "/") {
-      result = firstNum / secondNum;
-    }
+  //   if (operator === "-") {
+  //     result = firstNum - secondNum;
+  //   } else if (operator === "+") {
+  //     result = firstNum + secondNum;
+  //   } else if (operator === "*") {
+  //     result = firstNum * secondNum;
+  //   } else if (operator === "/") {
+  //     result = firstNum / secondNum;
+  //   }
 
-    setDisplay(result.toString()); // Convert result to string to handle negative numbers
-    setFirstCount(result.toString()); // Update the firstCount with the result
-    setOperator(null); // Reset the operator to null
-  };
+  //   setDisplay(result.toString());
+  //   setFirstCount(result.toString());
+  //   setOperator(null);
+  // };
 
   const handleClear = () => {
     setDisplay("0");
@@ -61,16 +73,13 @@ const Calculator = () => {
   };
 
   const handleDecimal = () => {
-    // Split the display into tokens based on operators
     const tokens = display.split(/[+\-*/]/);
     const lastToken = tokens[tokens.length - 1];
 
-    // If the last token already contains a decimal, do not add another one
     if (lastToken.includes(".")) {
       return;
     }
 
-    // If there is no last token or it's an operator, add a leading zero before the decimal
     if (!lastToken || /[+\-*/]/.test(lastToken)) {
       setDisplay((prevDisplay) => prevDisplay + "0.");
     } else {
@@ -84,7 +93,7 @@ const Calculator = () => {
         <Display value={display} />
         <Container style={{ backgroundColor: "grey", padding: 0 }}>
           <Row>
-            <Button variant="danger" id="clear" onClick={handleClear}>
+            <Button variant="danger" id="clear" onClick={() => handleClear()}>
               AC
             </Button>
             <Button id="divide" onClick={() => handleOperatorClick("/")}>
@@ -182,12 +191,20 @@ const Calculator = () => {
                 >
                   0
                 </Button>
-                <Button variant="dark" id="decimal" onClick={handleDecimal}>
+                <Button
+                  variant="dark"
+                  id="decimal"
+                  onClick={() => handleDecimal()}
+                >
                   .
                 </Button>
               </Row>
             </Col>
-            <Button variant="primary" id="equals" onClick={handleEquals}>
+            <Button
+              variant="primary"
+              id="equals"
+              onClick={() => handleEquals()}
+            >
               =
             </Button>
           </Row>
