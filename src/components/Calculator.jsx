@@ -87,7 +87,9 @@ const Calculator = () => {
 
     // Update the display with the calculated result
     const formattedResult =
-      result % 1 === 0 ? result.toString() : result.toFixed(4);
+      result % 1 === 0
+        ? result.toString()
+        : result.toFixed(4).replace(/\.?0+$/, "");
     setDisplay(formattedResult);
     setFirstCount(formattedResult);
     setOperator(null);
