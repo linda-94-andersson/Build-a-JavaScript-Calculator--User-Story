@@ -86,8 +86,10 @@ const Calculator = () => {
     }
 
     // Update the display with the calculated result
-    setDisplay(result.toString());
-    setFirstCount(result.toString());
+    const formattedResult =
+      result % 1 === 0 ? result.toString() : result.toFixed(4);
+    setDisplay(formattedResult);
+    setFirstCount(formattedResult);
     setOperator(null);
   };
 
