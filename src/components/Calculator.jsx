@@ -36,13 +36,24 @@ const Calculator = () => {
         setDisplay((prevDisplay) => prevDisplay + op);
       }
     } else {
-      // Allow chaining of "-" operator, ignore other operators if already set
+      // Allow chaining of operators indefinitely
       if (op === "-") {
-        setOperator(op);
-        setDisplay((prevDisplay) => prevDisplay + op);
+        if (!/[+\/*-]$/.test(display)) {
+          // Only add '-' if the last character is not an operator
+          setOperator(op);
+          setDisplay((prevDisplay) => prevDisplay + op);
+        }
+      } else {
+        if (!/[+\/*-]$/.test(display)) {
+          // Only add the operator if the last character is not an operator
+          setOperator(op);
+          setDisplay((prevDisplay) => prevDisplay + op);
+        }
       }
     }
   };
+  
+  
 
   // const handleEquals = () => {
   //   if (!operator) return;
